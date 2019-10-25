@@ -3,6 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
+
+  state = {
+    toggle : true
+  }
+
+  toggle = () => {
+    this.setState({
+      toggle : !this.state.toggle
+    });
+  }
   render(){
   return (
     <div className="App">
@@ -20,6 +30,11 @@ class App extends React.Component {
         >
           Learn React
         </a>
+        {this.state.toggle && 
+           <p>This should hide and show</p>
+        }
+      
+        <button onClick={this.toggle}>hide/show</button>
       </header>
     </div>
   );
